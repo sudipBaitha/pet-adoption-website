@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Adoption Center</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <i class="fa-solid fa-paw"></i> Pet Adoption Center
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="adoption-form.html">Adoption Form</a></li>
+          <li><a href="cost-calculator.html">Cost Calculator</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Welcome to the Pet Adoption Center</h1>
+          <p>Find your new best friend and give a loving pet a forever home!</p>
+          <a href="adoption-form.html" class="cta-btn">Find Your Pet</a>
+        </div>
+        <div class="carousel" id="pet-carousel">
+          <!-- Carousel images will be injected by JS -->
+        </div>
+      </section>
+      <section class="pet-profiles" id="pet-profiles">
+        <h2><i class="fa-solid fa-dog"></i> Meet Our Pets</h2>
+        <div class="pets-list-container" id="home-pets-list-container">
+          <!-- Pet cards will be injected by JS -->
+        </div>
+      </section>
+      <section class="faq" id="faq">
+        <h2>
+          <i class="fa-solid fa-question-circle"></i> Frequently Asked Questions
+        </h2>
+        <div class="faq-list">
+          <!-- FAQ items will be injected by JS -->
+        </div>
+      </section>
+    </main>
+    <button id="back-to-top" title="Back to Top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <footer>
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <form class="newsletter">
+          <label for="newsletter-email">Subscribe to our newsletter:</label>
+          <input type="email" id="newsletter-email" placeholder="Your email" />
+          <button type="submit"><i class="fa-solid fa-envelope"></i></button>
+        </form>
+        <div class="copyright">
+          &copy; 2024 Pet Adoption Center. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const pets = [
+          {
+            name: "Buddy",
+            type: "Dog",
+            breed: "Labrador Retriever",
+            age: "2 years",
+            gender: "Male",
+            desc: "A playful Labrador who loves fetch and cuddles.",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrHhojxSOeFioNiLM0QeuA3ToL5HSHH0u0Gw&s",
+          },
+          {
+            name: "Mittens",
+            type: "Cat",
+            breed: "Tabby",
+            age: "3 years",
+            gender: "Female",
+            desc: "A gentle tabby cat who enjoys sunbeams and naps.",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG_t3eZ3BhCAAilSfAmnmZpyZDvXGeix6iNA&s",
+          },
+          {
+            name: "Sunny",
+            type: "Bird",
+            breed: "Cockatiel",
+            age: "1 year",
+            gender: "Male",
+            desc: "A cheerful cockatiel who loves to sing and mimic sounds.",
+            img: "https://available-animals.bestfriends.org/Animals/210202500_0.jpg",
+          },
+          {
+            name: "Thumper",
+            type: "Rabbit",
+            breed: "Mini Lop",
+            age: "1 year",
+            gender: "Female",
+            desc: "A curious rabbit who enjoys hopping and carrots.",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWa9X8ADwBmJJ50VGu68wOy4UgsUA7GHDtzw&s",
+          },
+        ];
+        const container = document.getElementById("home-pets-list-container");
+        if (container) {
+          container.innerHTML = pets
+            .map(
+              (pet) => `
+        <div class="pet-card hero-card">
+          <img src="${pet.img}" alt="${pet.name}" class="pet-img" />
+          <div class="pet-info">
+            <div class="pet-name">${pet.name}</div>
+            <div class="pet-meta">
+              <span class="pet-type"><i class="fa-solid fa-paw"></i> ${pet.type}</span>
+              <span class="pet-breed"><i class="fa-solid fa-dna"></i> ${pet.breed}</span>
+              <span class="pet-age"><i class="fa-solid fa-cake-candles"></i> ${pet.age}</span>
+              <span class="pet-gender"><i class="fa-solid fa-venus-mars"></i> ${pet.gender}</span>
+            </div>
+            <div class="pet-desc">${pet.desc}</div>
+            <a href="adoption-form.html" class="cta-btn" style="margin-top:0.8rem;display:inline-block;">Adopt Me</a>
+          </div>
+        </div>
+      `
+            )
+            .join("");
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
